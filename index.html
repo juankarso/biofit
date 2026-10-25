@@ -1,0 +1,1079 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b8c86">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Biofit">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAEnklEQVR42u3dTVLcMBBAYVB5B7fNKheADdw2B8hiqqhUYMAzVkvd8vfWiSV6nlo/lqXHp7eXB+ArmhCAHCAHyAFygBwgB8gBcoAcIAdADpAD5AA5QA6QA+QAOUAOkAMgB8gBcoAcIAfIAXKAHCAHyAGQA+QAOUAOkAPkADlADpAD5AA5AHKAHCAHyAFygBwgB8gBcoAcwAebEETw59fvI//9+f1V5oBuBeQAOUAOmK0sP/JPOxcgx0m5+PdZ61pe6lZqZ0FygByLdi7kwII9CzlQebZSOjk/v7/WGoTKHFglcyw2P7xUuEQ6bMxQ7TXlqNudG3OgttnkwIpy6FPMVm4mz0Sgur5VM0f+uO+pYfK/YsExR4aIV9/JUViO5A3umhnl/DBbmSxuZtHb8tGfXre6Lw6b5jvSDHtIzzh3XSxnlJQjZ59y0Iy0HWX5zDG9dd5qRqF0UkmOb1rY54iPaY5L9iamsrnMyNmztBP+EmsPjWWOjLLuN6OKQ49Pby8JJx3/hW9n2hj2RuN4QXf0I+OV2vIIce0fZ2tns16qjY/Jlk2L5KONJCPHSzWig7AtH8dUg+K+Mfl4WpAlraIZ12IRutqRzYwBT94qJowxSbWjGUVj0sqZMb6sQq9O+pa1zarZN8Hd/5wB3xWON+PLh0+JSbd1jj21D1oM+HFR5O5gTckZPz4/ItSB3cqeRa24ZaKgvB1txh0x2f8fu8SkRZtxdwgSjj96mdElJj8+5HhMWrQZw1pt0BJChBljhm7HY9KCzAhKGN8/9tp07viO8C5mTIzJaDlu2nrTN20ExSLajLiRY1BMWoTIqbr/DGOXAe9sI2LS+gbxeP32jzaulXX3Dxw0PRm5kts3Ji1P85o7nZm4DDr+jf+EbiXojxywkztuV8D4rQUdS2yp6jRlf1ROMzKkojay0glbXhczjsckZ8/SSqeNm0r//PzQPWZzdzdOeLey0uauXmbU2sJz0zNb5rQxeLN/x7aeYVP08Tqc9LuVhMcyJfyYpeX8qYKCdSmo0IFdc/vxVqWiOXPGkuuB3TJHnmWGPK3/7pp0/xMOPnCrbvd6Pb0xR4q0XMKMiSE671f2ckb2buXazc2nNePfO+GmV/JcmaPKScJjdmWTo15vkqeG20rhWPv4NpkDC8mRZ4lQTbrX5AY5Kubn6DqvHRPdCsiBKXLkvDZLfUZ/SF2riy397V2G2rYFGkqhezZqld5WbSgZPkKsHpNWvaGUu/KtULmtdCzWuHo4bYn3yOHd1Uli0vqWlOHMzVm/03oxacPqd7YOZYGYtO4NZUAs4k6cikvdFWNy9JDaoNMEkxR38pjEfrcSffxjziHhMjHpc7z1rddyZXv+lBFA/pikPvv8YeA537NGiJlj0vMCwPG3JuRfYCgdk863Qy52KNTJY9Lq/lpeAUaXFXWv7JQ73s6cQiJi0sr9fnW/QykXkxE3UndpMYt9m1QiJuOuK48+SfJUioyJSY277M9AwpjMkQMl8N0KyAFygBwgB8gBcoAcIAfIAXIA5AA5QA6QA+QAOUAOkAPkADkAcoAcIAfIAXKAHCAHyAFy4Dz8BXYwpe9+Mn0dAAAAAElFTkSuQmCC">
+<title>Biofit Bici</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap">
+<style>
+:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html,body{margin:0}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+button,select,input,label{-webkit-tap-highlight-color:transparent}
+[hidden]{display:none!important}
+img{max-width:100%}
+</style>
+<style>
+/* Layout: lienzo de foto a la izquierda, puntos y resultados a la derecha; en móvil se apilan. */
+:root {
+  --bg: #edf2f3;
+  --surface: #ffffff;
+  --surface-2: #e2eaec;
+  --ink: #0f2127;
+  --ink-2: #48606a;
+  --line: #c9d7da;
+  --accent: #0b8c86;
+  --accent-ink: #ffffff;
+  --good: #1f7a4d;
+  --warn: #a35f08;
+  --bad: #b3321f;
+  --info: #2c6a8f;
+  --pt-body: #22c7b8;
+  --pt-bike: #ffb92e;
+  --pt-cal: #b78cff;
+  --pt-ink: #06201e;
+  --display: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", sans-serif;
+  --body: "Barlow", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c1619; --surface: #132228; --surface-2: #1b2f36; --ink: #e4eef0; --ink-2: #93aab0;
+    --line: #284249; --accent: #48cfc4; --accent-ink: #06201e;
+    --good: #4fc98a; --warn: #e9a64a; --bad: #f0705e; --info: #78b8dd;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0c1619; --surface: #132228; --surface-2: #1b2f36; --ink: #e4eef0; --ink-2: #93aab0;
+  --line: #284249; --accent: #48cfc4; --accent-ink: #06201e;
+  --good: #4fc98a; --warn: #e9a64a; --bad: #f0705e; --info: #78b8dd;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font: 400 15px/1.5 var(--body);
+  padding-block: 20px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  font-variant-numeric: tabular-nums;
+}
+.wrap { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; letter-spacing: .01em; }
+h1 { font-size: clamp(34px, 6vw, 52px); line-height: 1; font-weight: 700; text-transform: uppercase; }
+h2 { font-size: 22px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+.lede { margin: 8px 0 0; color: var(--ink-2); max-width: 60ch; }
+.top { display: flex; flex-direction: column; gap: 2px; }
+
+.modes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.mode {
+  text-align: left; border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+  border-radius: 12px; padding: 12px 16px; cursor: pointer; font: inherit; min-width: 0;
+}
+.mode b { display: block; font-family: var(--display); font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; line-height: 1.1; }
+.mode span { display: block; color: var(--ink-2); font-size: 13.5px; }
+.mode[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.mode[aria-pressed="true"] span { color: inherit; opacity: .85; }
+@media (max-width: 560px) { .modes { grid-template-columns: minmax(0, 1fr); } }
+
+.grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(300px, 1fr); gap: 18px; align-items: start; }
+@media (max-width: 900px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+.col { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px; min-width: 0; }
+.card > h2 { margin-bottom: 10px; }
+
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: var(--surface-2);
+  color: var(--ink); border-radius: 10px; padding: 9px 14px; font: 600 14px var(--body); cursor: pointer; position: relative;
+}
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn:focus-within, .btn:focus-visible, .mode:focus-visible, .pt:focus-visible, .seg button:focus-visible, canvas:focus-visible, input:focus-visible {
+  outline: 3px solid var(--accent); outline-offset: 2px;
+}
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; opacity: 0; }
+
+#canvaswrap {
+  background: var(--surface-2); border-radius: 10px; display: flex; justify-content: center; align-items: center;
+  min-height: 260px; overflow: hidden; position: relative;
+}
+canvas { display: block; touch-action: none; cursor: crosshair; max-width: 100%; border-radius: 6px; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+.empty { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 18px; text-align: center; color: var(--ink-2); max-width: 460px; }
+.empty svg { width: min(420px, 100%); height: auto; color: var(--ink); }
+.empty p { margin: 0; }
+.empty strong { color: var(--ink); font-weight: 600; }
+.hint { margin: 10px 2px 0; color: var(--ink-2); font-size: 14px; min-height: 1.5em; }
+.vidbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; }
+.vidbar input[type=range] { flex: 1 1 160px; min-width: 0; accent-color: var(--accent); }
+.vidbar .btn { padding: 6px 10px; }
+.time { font-size: 13px; color: var(--ink-2); min-width: 4.5em; text-align: right; }
+
+.pts { display: flex; flex-wrap: wrap; gap: 8px; }
+.pt {
+  display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: var(--surface);
+  color: var(--ink); border-radius: 999px; padding: 4px 12px 4px 4px; font: 500 14px var(--body); cursor: pointer;
+}
+.pt .dot {
+  width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font: 700 12px var(--body);
+  border: 2px solid var(--ptc); color: var(--ink); background: transparent;
+}
+.pt.body { --ptc: var(--pt-body); }
+.pt.bike { --ptc: var(--pt-bike); }
+.pt.cal { --ptc: var(--pt-cal); }
+.pt.done .dot { background: var(--ptc); color: var(--pt-ink); }
+.pt.on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.pt.on .dot { color: var(--bg); }
+.pt.on.done .dot { color: var(--pt-ink); }
+.active-info { margin: 12px 0 0; padding-top: 12px; border-top: 1px solid var(--line); font-size: 14.5px; }
+.row-actions { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+
+.fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.field { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.field label, .field .lbl { font-size: 12.5px; font-weight: 600; color: var(--ink-2); text-transform: uppercase; letter-spacing: .06em; }
+.field input[type=number] {
+  width: 100%; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 10px;
+  padding: 9px 10px; font: 500 16px var(--body);
+}
+.tip { display: flex; gap: 12px; align-items: flex-start; justify-content: space-between; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; font-size: 14px; color: var(--ink-2); }
+.tip p { margin: 0; flex: 1; min-width: 0; }
+.tip .btn { padding: 6px 12px; flex: none; }
+.field select {
+  -webkit-appearance: none; appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--ink-2) 50%), linear-gradient(135deg, var(--ink-2) 50%, transparent 50%);
+  background-position: calc(100% - 18px) 55%, calc(100% - 13px) 55%; background-size: 5px 5px, 5px 5px; background-repeat: no-repeat;
+  padding-right: 32px !important;
+}
+.field select {
+  width: 100%; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 10px;
+  padding: 9px 10px; font: 500 16px var(--body);
+}
+.field.wide { grid-column: 1 / -1; }
+.seg { display: flex; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.seg button { flex: 1; border: 0; background: var(--surface); color: var(--ink); padding: 9px 8px; font: 600 14px var(--body); cursor: pointer; }
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.field small { color: var(--ink-2); font-size: 12.5px; }
+
+.res-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 4px; }
+.count { font-size: 13px; color: var(--ink-2); }
+.metric { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 14px; padding: 14px 0; border-top: 1px solid var(--line); }
+.metric:first-of-type { border-top: 0; }
+.metric h3 { font-size: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+.metric .val { font-family: var(--display); font-size: 40px; font-weight: 700; line-height: 1; text-align: right; color: var(--c); white-space: nowrap; }
+.metric .sub { color: var(--ink-2); font-size: 13.5px; }
+.metric p { grid-column: 1 / -1; margin: 6px 0 0; font-size: 14.5px; }
+.pill {
+  display: inline-block; margin-top: 4px; font: 700 11.5px var(--body); text-transform: uppercase; letter-spacing: .08em;
+  color: var(--c); background: color-mix(in srgb, var(--c) 14%, transparent); border: 1px solid color-mix(in srgb, var(--c) 40%, transparent);
+  padding: 2px 8px; border-radius: 999px; width: fit-content;
+}
+.metric[data-st="good"] { --c: var(--good); }
+.metric[data-st="warn"] { --c: var(--warn); }
+.metric[data-st="bad"] { --c: var(--bad); }
+.metric[data-st="info"] { --c: var(--info); }
+.pending { color: var(--ink-2); margin: 6px 0 0; font-size: 14.5px; }
+
+details { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+summary { cursor: pointer; font: 600 20px var(--display); text-transform: uppercase; letter-spacing: .04em; }
+details ul { margin: 10px 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+.disclaimer { color: var(--ink-2); font-size: 13.5px; margin: 0; }
+
+#toast {
+  position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  background: var(--ink); color: var(--bg); padding: 10px 16px; border-radius: 10px; font-weight: 600; font-size: 14px; z-index: 20;
+  max-width: calc(100% - 32px);
+}
+#livebox { position: relative; width: 100%; background: #000; line-height: 0; }
+#live { display: block; width: 100%; max-height: 72vh; object-fit: contain; background: #000; }
+.guides { position: absolute; inset: 0; pointer-events: none; }
+.guides i { position: absolute; background: rgba(255,255,255,.75); box-shadow: 0 0 0 1px rgba(0,0,0,.35); }
+.guides .gh { left: 0; right: 0; top: 50%; height: 1.5px; }
+.guides .gv { top: 0; bottom: 0; left: 50%; width: 1.5px; }
+#cdown { position: absolute; inset: 0; display: grid; place-items: center; font: 700 clamp(90px, 28vw, 180px)/1 var(--display); color: #fff; text-shadow: 0 2px 18px rgba(0,0,0,.7); }
+.inl { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--ink-2); }
+.inl select { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 8px; padding: 6px 8px; font: 500 14px var(--body); }
+</style>
+</head>
+<body>
+
+<main class="wrap">
+  <header class="top">
+    <h1>Biofit Bici</h1>
+    <p class="lede">Indica tu tipo de bici, haz una foto de perfil, marca las articulaciones y los puntos de la bici, y obtén ángulos, altura del sillín, posición del manillar y retroceso.</p>
+  </header>
+
+  <div class="tip" id="tip" hidden><p id="tip-text"></p><button class="btn" type="button" id="tip-ok">Entendido</button></div>
+
+  <div class="modes" role="group" aria-label="Posición del pedal">
+    <button class="mode" type="button" id="mode-down" aria-pressed="true"><b>Pedal abajo · 6 h</b><span>Altura del sillín y ángulos del cuerpo</span></button>
+    <button class="mode" type="button" id="mode-fwd" aria-pressed="false"><b>Pedal adelante · 3 h</b><span>Retroceso del sillín y rodilla sobre el pedal</span></button>
+  </div>
+
+  <div class="grid">
+    <section class="col" aria-label="Foto">
+      <div class="card">
+        <div class="toolbar">
+          <button class="btn primary" type="button" id="btn-live">Cámara en vivo</button>
+          <label class="btn">Hacer foto<input class="sr" id="in-photo" type="file" accept="image/*" capture="environment"></label>
+          <label class="btn">Grabar vídeo<input class="sr" id="in-video" type="file" accept="video/*" capture="environment"></label>
+          <label class="btn">Galería<input class="sr" id="in-gallery" type="file" accept="image/*,video/*"></label>
+          <button class="btn" type="button" id="btn-save" hidden>Guardar imagen</button>
+        </div>
+        <div id="canvaswrap">
+          <canvas id="cv" tabindex="0" aria-label="Foto del ciclista. Toca para colocar el punto activo y arrastra para corregirlo. Con el teclado, usa las flechas." hidden></canvas>
+          <div id="livebox" hidden>
+            <video id="live" playsinline muted autoplay></video>
+            <div class="guides" aria-hidden="true"><i class="gh"></i><i class="gv"></i></div>
+            <div id="cdown" hidden aria-live="polite"></div>
+          </div>
+          <div class="empty" id="empty"></div>
+        </div>
+        <div class="vidbar" id="livebar" hidden>
+          <button class="btn primary" type="button" id="l-shot">Capturar</button>
+          <label class="inl" for="l-timer">Temporizador
+            <select id="l-timer"><option value="0">Sin</option><option value="5">5 s</option><option value="10">10 s</option></select>
+          </label>
+          <button class="btn" type="button" id="l-flip">Girar cámara</button>
+          <button class="btn" type="button" id="l-close">Cerrar</button>
+        </div>
+        <div class="vidbar" id="vidbar" hidden>
+          <button class="btn" type="button" id="v-prev" aria-label="Fotograma anterior">−1</button>
+          <input type="range" id="v-seek" min="0" max="1" step="any" value="0" aria-label="Buscar fotograma del vídeo">
+          <button class="btn" type="button" id="v-next" aria-label="Fotograma siguiente">+1</button>
+          <span class="time" id="v-time">0:00,0</span>
+        </div>
+        <p class="hint" id="hint"></p>
+      </div>
+      <details>
+        <summary>Cómo hacer la foto</summary>
+        <ul>
+          <li>Coloca la cámara a la altura del eje de la rueda, a 3 o 4 metros, perpendicular a la bici y bien nivelada.</li>
+          <li>Con la cámara en vivo, apoya el móvil en horizontal y usa las líneas de guía para nivelarlo. El temporizador te da tiempo para subirte a la bici.</li>
+          <li>Si tu bici lleva tija telescópica, extiéndela del todo antes de la foto: así se mide la altura de pedaleo.</li>
+          <li>Haz la foto con el ciclista encima y la suspensión con la presión habitual, para que se comprima como al rodar.</li>
+          <li>Para más precisión usa la distancia entre ejes como escala: se mide sobre una distancia mayor y un pequeño error al marcar pesa menos.</li>
+          <li>Pon la bici en un rodillo o apoyada. El ciclista lleva su ropa y zapatillas habituales.</li>
+          <li>Pedal abajo: biela vertical, pie en el punto más bajo. Pedal adelante: biela horizontal, pie delantero.</li>
+          <li>Con pegatinas o marcas en cadera, rodilla, tobillo y hombro los puntos salen mucho más precisos.</li>
+          <li>Con vídeo, avanza fotograma a fotograma hasta que la biela quede en la posición buscada.</li>
+          <li>Cambia una sola cosa cada vez, en pasos de 3 a 5 mm, y repite la foto.</li>
+        </ul>
+      </details>
+    </section>
+
+    <section class="col" aria-label="Puntos y resultados">
+      <div class="card">
+        <h2>Puntos</h2>
+        <div class="pts" id="pts"></div>
+        <p class="active-info" id="active-info"></p>
+        <div class="row-actions">
+          <button class="btn" type="button" id="btn-undo">Quitar punto activo</button>
+          <button class="btn" type="button" id="btn-reset">Reiniciar puntos</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Tu bici</h2>
+        <div class="fields">
+          <div class="field wide">
+            <label for="btype">Tipo de bici</label>
+            <select id="btype"></select>
+            <small id="type-note"></small>
+          </div>
+          <div class="field">
+            <label for="wsize">Tamaño de rueda</label>
+            <select id="wsize"></select>
+          </div>
+          <div class="field">
+            <label for="wmm">Diámetro con cubierta (mm)</label>
+            <input type="text" id="wmm" inputmode="decimal" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="wbase">Distancia entre ejes (mm)</label>
+            <input type="text" id="wbase" inputmode="decimal" autocomplete="off" placeholder="ficha del fabricante">
+          </div>
+          <div class="field">
+            <label for="crank">Longitud de biela (mm)</label>
+            <input type="text" id="crank" list="cranks" inputmode="decimal" autocomplete="off" value="172.5">
+            <datalist id="cranks"><option value="165"></option><option value="167.5"></option><option value="170"></option><option value="172.5"></option><option value="175"></option><option value="180"></option></datalist>
+          </div>
+          <div class="field wide">
+            <small>El diámetro cambia con el ancho de la cubierta; ajústalo si lo has medido. La distancia entre ejes viene en la tabla de geometría de tu bici.</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Escala y cuerpo</h2>
+        <div class="fields">
+          <div class="field wide">
+            <span class="lbl" id="sc-lbl">Escala de la foto</span>
+            <div class="seg" role="group" aria-labelledby="sc-lbl">
+              <button type="button" id="sc-crank" aria-pressed="true">Biela</button>
+              <button type="button" id="sc-base" aria-pressed="false">Entre ejes</button>
+              <button type="button" id="sc-wheel" aria-pressed="false">Rueda</button>
+            </div>
+            <small id="sc-note"></small>
+          </div>
+          <div class="field">
+            <label for="inseam">Entrepierna (cm)</label>
+            <input type="text" id="inseam" inputmode="decimal" autocomplete="off" placeholder="opcional">
+          </div>
+          <div class="field wide">
+            <span class="lbl" id="dir-lbl">La bici mira hacia</span>
+            <div class="seg" role="group" aria-labelledby="dir-lbl">
+              <button type="button" id="dir-left" aria-pressed="false">Izquierda</button>
+              <button type="button" id="dir-right" aria-pressed="true">Derecha</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="res-head"><h2>Resultados</h2><span class="count" id="count"></span></div>
+        <div id="results"></div>
+      </div>
+      <p class="disclaimer">Orientación general. Las referencias de MTB son orientativas, porque la posición depende mucho del terreno y del estilo. Si hay dolor o molestias que no se van, consulta con un fisioterapeuta o un biomecánico.</p>
+    </section>
+  </div>
+</main>
+<div id="toast" role="status" hidden></div>
+
+<script>
+(function () {
+  'use strict';
+  var $ = function (s) { return document.querySelector(s); };
+
+  var MODES = {
+    down: {
+      title: 'Pedal abajo',
+      shot: 'biela vertical, pie en el punto más bajo',
+      points: [
+        { k: 'shoulder', n: 'Hombro', g: 'body', h: 'Punta del hombro, el hueso redondeado de arriba (acromion).' },
+        { k: 'elbow', n: 'Codo', g: 'body', h: 'Centro de la articulación del codo.' },
+        { k: 'wrist', n: 'Muñeca', g: 'body', h: 'Muñeca, junto al agarre del manillar.' },
+        { k: 'hip', n: 'Cadera', g: 'body', h: 'Hueso lateral de la cadera (trocánter mayor), a un palmo bajo la cintura.' },
+        { k: 'knee', n: 'Rodilla', g: 'body', h: 'Hueso lateral de la rodilla (cóndilo externo).' },
+        { k: 'ankle', n: 'Tobillo', g: 'body', h: 'Hueso externo del tobillo (maléolo).' },
+        { k: 'pedal', n: 'Eje del pedal', g: 'bike', h: 'Centro del eje del pedal, donde se une a la biela.' },
+        { k: 'bb', n: 'Eje del pedalier', g: 'bike', h: 'Centro del eje de las bielas, en el cuadro.' },
+        { k: 'saddle', n: 'Sillín', g: 'bike', h: 'Punto más alto del sillín, en la línea del tubo del sillín.' }
+      ]
+    },
+    fwd: {
+      title: 'Pedal adelante',
+      shot: 'biela horizontal, pie delantero',
+      points: [
+        { k: 'tt', n: 'Rodilla', g: 'body', h: 'Bulto óseo justo bajo la rótula (tuberosidad tibial).' },
+        { k: 'pedal', n: 'Eje del pedal', g: 'bike', h: 'Centro del eje del pedal delantero.' },
+        { k: 'bb', n: 'Eje del pedalier', g: 'bike', h: 'Centro del eje de las bielas, en el cuadro.' },
+        { k: 'tip', n: 'Punta del sillín', g: 'bike', h: 'Extremo delantero del sillín.' }
+      ]
+    }
+  };
+  var ST = { good: '#3ddc97', warn: '#ffb84d', bad: '#ff6b5b', info: '#7dd3fc' };
+  var ST_TXT = { good: 'En rango', warn: 'Revisar', bad: 'Ajustar', info: 'Medida' };
+  var COL = { body: '#22c7b8', bike: '#ffb92e', cal: '#b78cff' };
+  var WHEELS = {
+    '24': { n: '24"', mm: 600 }, '26': { n: '26"', mm: 660 }, '27.5': { n: '27,5" (650B)', mm: 700 },
+    '29': { n: '29"', mm: 740 }, '700c': { n: '700c (28")', mm: 680 }
+  };
+  var TYPES = {
+    xc: { n: 'Cross-country', mtb: true, wheel: '29', note: 'Espalda de 45° o más, y manos a la altura del sillín o algo por debajo.' },
+    trail: { n: 'Trail', mtb: true, wheel: '29', note: 'Espalda algo más erguida que en cross-country, y manos a una altura parecida al sillín o por encima.' },
+    enduro: { n: 'Enduro', mtb: true, wheel: '29', note: 'Como en trail. Mide con la tija telescópica extendida del todo.' },
+    gravel: { n: 'Gravel', mtb: false, wheel: '700c', note: 'Usa la referencia de altura de sillín de carretera.' },
+    road: { n: 'Carretera', mtb: false, wheel: '700c', note: 'Referencia de altura de LeMond y rodilla sobre el pedal con margen de 1 cm.' }
+  };
+  var SC_NOTE = {
+    crank: 'Usa la biela como regla. No añade puntos, pero la biela debe estar vertical u horizontal.',
+    wheelbase: 'Añade dos puntos, en los ejes de las ruedas. Escribe la distancia entre ejes de tu bici.',
+    wheel: 'Añade dos puntos, arriba y abajo de la cubierta delantera. Usa el diámetro con cubierta.'
+  };
+
+  var live = { stream: null, facing: 'environment', on: false, tm: 0, counting: false };
+  function mk() { return { src: null, pts: {}, active: 0, vid: null }; }
+  var state = { mode: 'down', dir: 1, type: 'xc', scale: 'crank', crank: 172.5, inseam: '', wheelbase: '', wheelKey: '29', wheelMm: 740, wheelTouched: false, m: { down: mk(), fwd: mk() } };
+  try {
+    var s = JSON.parse(localStorage.getItem('biofitbici') || '{}');
+    if (s.crank) state.crank = +s.crank;
+    if (s.inseam) state.inseam = s.inseam;
+    if (s.dir === -1) state.dir = -1;
+    if (TYPES[s.type]) state.type = s.type;
+    if (s.scale === 'wheelbase' || s.scale === 'wheel') state.scale = s.scale;
+    if (s.wheelbase) state.wheelbase = s.wheelbase;
+    if (s.wheelTouched && WHEELS[s.wheelKey]) { state.wheelKey = s.wheelKey; state.wheelMm = +s.wheelMm || WHEELS[s.wheelKey].mm; state.wheelTouched = true; }
+  } catch (e) {}
+  if (!state.wheelTouched) { state.wheelKey = TYPES[state.type].wheel; state.wheelMm = WHEELS[state.wheelKey].mm; }
+  function persist() {
+    try {
+      localStorage.setItem('biofitbici', JSON.stringify({ crank: state.crank, inseam: state.inseam, dir: state.dir, type: state.type, scale: state.scale,
+        wheelbase: state.wheelbase, wheelKey: state.wheelKey, wheelMm: state.wheelMm, wheelTouched: state.wheelTouched }));
+    } catch (e) {}
+  }
+  function cur() { return state.m[state.mode]; }
+  function calPoints() {
+    if (state.scale === 'wheelbase') return [
+      { k: 'axR', n: 'Eje rueda trasera', g: 'cal', h: 'Centro del buje (eje) de la rueda trasera.' },
+      { k: 'axF', n: 'Eje rueda delantera', g: 'cal', h: 'Centro del buje (eje) de la rueda delantera.' }];
+    if (state.scale === 'wheel') return [
+      { k: 'wTop', n: 'Rueda arriba', g: 'cal', h: 'Borde exterior de la cubierta delantera en su punto más alto, justo sobre el eje.' },
+      { k: 'wBot', n: 'Rueda abajo', g: 'cal', h: 'Borde exterior de la cubierta delantera en el suelo, justo bajo el eje.' }];
+    return [];
+  }
+  function pdef() { return MODES[state.mode].points.concat(calPoints()); }
+
+  var num = function (v) { return parseFloat(String(v == null ? '' : v).replace(',', '.')); };
+  var f1 = function (n) { return n.toFixed(1).replace('.', ','); };
+  var sgn = function (n) { return (n > 0.049 ? '+' : n < -0.049 ? '−' : '') + f1(Math.abs(n)); };
+  var dist = function (a, b) { return Math.hypot(a.x - b.x, a.y - b.y); };
+  function ang(a, v, b) {
+    var a1 = Math.atan2(a.y - v.y, a.x - v.x), a2 = Math.atan2(b.y - v.y, b.x - v.x);
+    var d = Math.abs(a1 - a2) * 180 / Math.PI;
+    return d > 180 ? 360 - d : d;
+  }
+
+  /* ---------- métricas ---------- */
+  function compute() {
+    var M = cur(), S = M.src, out = [];
+    if (!S) return out;
+    var T = state.type, mtb = TYPES[T].mtb;
+    var g = function (k) { return M.pts[k] ? { x: M.pts[k].x * S.width, y: M.pts[k].y * S.height } : null; };
+    var bb = g('bb'), pd = g('pedal'), mmpp = null;
+    var crankPx = (bb && pd) ? dist(bb, pd) : 0;
+    var need = function (what) {
+      out.push({ id: 'need', name: 'Falta un dato', value: '—', sub: what, st: 'warn', msg: 'Escribe ' + what + ' en la ficha Tu bici para poder calcular las medidas.' });
+    };
+    if (state.scale === 'crank') {
+      if (crankPx > 5) mmpp = state.crank / crankPx;
+    } else if (state.scale === 'wheelbase') {
+      var ax = g('axF'), ar = g('axR'), wbn = num(state.wheelbase);
+      if (ax && ar) { if (!(wbn > 500)) need('la distancia entre ejes'); else if (dist(ax, ar) > 20) mmpp = wbn / dist(ax, ar); }
+    } else {
+      var wt = g('wTop'), wbm = g('wBot'), wd = num(state.wheelMm);
+      if (wt && wbm) { if (!(wd > 300)) need('el diámetro de la rueda'); else if (dist(wt, wbm) > 20) mmpp = wd / dist(wt, wbm); }
+    }
+    if (crankPx > 5) {
+      var dev = state.mode === 'down'
+        ? Math.atan2(Math.abs(pd.x - bb.x), Math.abs(pd.y - bb.y)) * 180 / Math.PI
+        : Math.atan2(Math.abs(pd.y - bb.y), Math.abs(pd.x - bb.x)) * 180 / Math.PI;
+      if (dev > 8) {
+        out.push({ id: 'crank', name: 'Posición de la biela', value: dev.toFixed(0) + '°', sub: 'desviación respecto a ' + (state.mode === 'down' ? 'la vertical' : 'la horizontal'), st: 'warn',
+          msg: 'La biela no está en la posición pedida (' + MODES[state.mode].shot + '). Los ángulos y las medidas pierden precisión: repite la foto o elige otro fotograma.' });
+      }
+      if (state.scale !== 'crank' && mmpp) {
+        var meas = crankPx * mmpp;
+        if (Math.abs(meas - state.crank) / state.crank > 0.1) {
+          out.push({ id: 'scalecheck', name: 'Comprobación de escala', value: Math.round(meas) + ' mm', sub: 'biela medida; indicaste ' + String(state.crank).replace('.', ',') + ' mm', st: 'warn',
+            msg: 'La biela medida no coincide con la que indicaste. Revisa los puntos marcados y los datos de la bici, porque las medidas en centímetros pueden fallar.' });
+        }
+      }
+    }
+    if (state.mode === 'down') {
+      var sh = g('shoulder'), el = g('elbow'), wr = g('wrist'), hip = g('hip'), kn = g('knee'), an = g('ankle'), sd = g('saddle');
+      if (hip && kn && an) {
+        var a = ang(hip, kn, an), fl = 180 - a, st, msg;
+        if (fl >= 25 && fl <= 35) { st = 'good'; msg = 'La extensión de la rodilla abajo está en el rango habitual (25 a 35° de flexión). La altura del sillín es correcta.'; }
+        else if (fl > 35) { st = fl > 40 ? 'bad' : 'warn'; msg = 'La rodilla queda muy flexionada abajo. Sube el sillín 3 a 5 mm y repite la foto.'; }
+        else { st = fl < 20 ? 'bad' : 'warn'; msg = 'La pierna llega casi estirada abajo, y eso suele balancear la cadera. Baja el sillín 3 a 5 mm y repite la foto.'; }
+        out.push({ id: 'knee', name: 'Rodilla abajo', value: a.toFixed(0) + '°', sub: 'flexión ' + fl.toFixed(0) + '°', st: st, msg: msg });
+      }
+      if (sh && hip) {
+        var t = Math.atan2(Math.abs(sh.y - hip.y), Math.abs(sh.x - hip.x)) * 180 / Math.PI, tm, ts = 'info';
+        if (T === 'xc') {
+          if (t >= 45) { ts = 'good'; tm = 'Espalda en el rango habitual para cross-country, de 45° en adelante. Pedaleas eficiente sin cargar de más las manos.'; }
+          else { ts = 'warn'; tm = 'Más inclinada de lo habitual en cross-country, que suele pedir 45° o más. En terreno roto carga manos y muñecas: sube el manillar o prueba una potencia más corta.'; }
+        } else if (mtb) {
+          tm = 'En trail y enduro la espalda suele ir más erguida que en cross-country, para controlar mejor la bici en bajada. Tómalo como una medida de referencia para comparar tus cambios.';
+        } else if (t < 35) tm = 'Postura muy aerodinámica y agresiva. Exige buena flexibilidad de cadera y lumbares.';
+        else if (t < 45) tm = 'Postura deportiva, habitual en carrera y ritmo alto.';
+        else if (t < 55) tm = 'Postura equilibrada, buena para rutas largas.';
+        else tm = 'Postura erguida y cómoda; pierdes algo de aerodinámica.';
+        out.push({ id: 'torso', name: 'Espalda', value: t.toFixed(0) + '°', sub: 'respecto a la horizontal', st: ts, msg: tm });
+      }
+      if (sh && el && wr) {
+        var e = ang(sh, el, wr), es, em;
+        if (e >= 150 && e <= 170) { es = 'good'; em = 'Brazos con una ligera flexión, que absorbe el bache sin cargar los hombros.'; }
+        else if (e > 170) { es = e > 175 ? 'bad' : 'warn'; em = 'Brazos casi rectos: la carga pasa a muñecas y hombros. Prueba una potencia más corta o el manillar algo más alto.'; }
+        else { es = e < 140 ? 'bad' : 'warn'; em = 'Brazos muy doblados, señal de alcance corto. Prueba una potencia más larga o el manillar algo más bajo.'; }
+        out.push({ id: 'elbow', name: 'Codo', value: e.toFixed(0) + '°', sub: 'flexión ' + (180 - e).toFixed(0) + '°', st: es, msg: em });
+      }
+      if (hip && sh && el) {
+        var h = ang(hip, sh, el), hs = (h >= 75 && h <= 95) ? 'good' : 'warn', hm;
+        if (hs === 'good') hm = 'El ángulo entre torso y brazo está en el rango habitual de 75 a 95°.';
+        else if (h > 95) hm = 'Brazos muy extendidos hacia delante: alcance largo.';
+        else hm = 'Brazos muy verticales: alcance corto.';
+        out.push({ id: 'shoulder', name: 'Hombro', value: h.toFixed(0) + '°', sub: 'torso a brazo', st: hs, msg: hm });
+      }
+      if (mmpp && sd && bb) {
+        var H = dist(bb, sd) * mmpp / 10, ins = num(state.inseam), sub = 'del eje del pedalier a lo alto del sillín', hst = 'info';
+        var hmsg = (mtb ? 'Mídelo con la tija telescópica extendida. ' : '') + 'Anota la cifra para poder repetirla. Con la entrepierna rellena la comparo con una referencia.';
+        if (ins > 50 && ins < 120) {
+          var rec = mtb ? 0.875 * ins - 0.5 : 0.883 * ins, diff = H - rec, ad = Math.abs(diff), rn = mtb ? 'punto de partida' : 'referencia';
+          sub = rn + ' ' + f1(rec) + ' cm (entrepierna × ' + (mtb ? '0,875 − 0,5 cm' : '0,883') + ')';
+          if (ad <= 1) { hst = 'good'; hmsg = 'Está cerca del ' + rn + ' habitual. Confírmalo con el ángulo de rodilla.'; }
+          else { hst = ad <= 2 ? 'warn' : 'bad'; hmsg = diff > 0 ? 'Está ' + f1(ad) + ' cm por encima del ' + rn + '. Si la rodilla abajo sale muy estirada, bájalo.' : 'Está ' + f1(ad) + ' cm por debajo del ' + rn + '. Si la rodilla abajo sale muy flexionada, súbelo.'; }
+        }
+        out.push({ id: 'height', name: 'Altura del sillín', value: f1(H) + ' cm', sub: sub, st: hst, msg: hmsg });
+      }
+      if (mmpp && sd && wr) {
+        var drop = (wr.y - sd.y) * mmpp / 10, below = drop >= 0, hmm;
+        if (T === 'xc') hmm = 'En cross-country las manos suelen ir a una altura parecida al sillín o algo por debajo. Es una referencia orientativa; la sensación al rodar manda.';
+        else if (mtb) hmm = 'En trail y enduro las manos suelen ir a una altura parecida al sillín o por encima. Es una referencia orientativa; la sensación al rodar manda.';
+        else hmm = 'Anótalo para comparar cuando cambies de potencia o de manillar.';
+        out.push({ id: 'bars', name: 'Altura de las manos', value: f1(Math.abs(drop)) + ' cm', sub: below ? 'por debajo del sillín' : 'por encima del sillín', st: 'info', msg: hmm });
+        var rch = (wr.x - sd.x) * state.dir * mmpp / 10;
+        out.push({ id: 'reach', name: 'Alcance al manillar', value: f1(Math.abs(rch)) + ' cm', sub: 'del sillín a las manos, en horizontal', st: 'info',
+          msg: 'Anótalo para comparar cuando cambies de potencia o de manillar. Si te notas estirado, el alcance es largo; si te notas encogido, es corto.' });
+      }
+    } else {
+      var tt = g('tt'), tip = g('tip');
+      if (mmpp && tt && pd) {
+        var off = (tt.x - pd.x) * state.dir * mmpp / 10, ao = Math.abs(off), ks, km, lim = mtb ? 2 : 1;
+        if (ao <= lim) {
+          ks = 'good';
+          km = mtb ? 'La rodilla cae cerca de la vertical del pedal. En MTB es solo un punto de partida: confírmalo subiendo y ajusta si te notas muy adelantado o muy atrasado.'
+                   : 'La rodilla cae sobre el eje del pedal. El retroceso del sillín es correcto como punto de partida.';
+        } else {
+          ks = (mtb || ao <= 2) ? 'warn' : 'bad';
+          km = off > 0 ? 'La rodilla queda ' + f1(ao) + ' cm por delante del pedal. ' + (mtb ? 'Prueba a retrasar el sillín y comprueba cómo sube. ' : 'Retrasa el sillín. ') + 'Al moverlo atrás sube la altura efectiva: revísala después.'
+                       : 'La rodilla queda ' + f1(ao) + ' cm por detrás del pedal. ' + (mtb ? 'Prueba a adelantar el sillín y comprueba cómo sube. ' : 'Adelanta el sillín. ') + 'Al moverlo adelante baja la altura efectiva: revísala después.';
+        }
+        out.push({ id: 'kops', name: 'Rodilla sobre el pedal', value: sgn(off) + ' cm', sub: off > 0 ? 'rodilla por delante' : 'rodilla por detrás', st: ks, msg: km });
+      }
+      if (mmpp && tip && bb) {
+        var sb = (bb.x - tip.x) * state.dir * mmpp / 10;
+        out.push({ id: 'setback', name: 'Retroceso del sillín', value: f1(sb) + ' cm', sub: 'del eje del pedalier a la punta del sillín', st: 'info', msg: 'Guárdalo como referencia para repetir la posición si cambias de sillín o de tija.' });
+      }
+    }
+    return out;
+  }
+  function missing() {
+    var M = cur();
+    return pdef().filter(function (p) { return !M.pts[p.k]; });
+  }
+
+  /* ---------- esquema vacío ---------- */
+  function schematic(mode) {
+    var base = '<g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".5">' +
+      '<circle cx="90" cy="190" r="58" stroke-width="7"/><circle cx="330" cy="190" r="58" stroke-width="7"/>' +
+      '<path d="M190 190 L168 108 M168 108 L292 108 M190 190 L292 108 M190 190 L90 190 M168 108 L90 190 M292 108 L330 190 M292 108 L300 92 M290 92 L318 92"/>' +
+      '<path d="M156 104 L184 104" stroke-width="6"/><path d="M296 112 L318 160" stroke-width="7"/></g>';
+    var rider, dots;
+    if (mode === 'down') {
+      rider = '<path d="M252 52 L160 92 L214 152 L198 206 L190 222 M252 52 L284 80 L306 94" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>';
+      dots = [[252, 52, 'body'], [284, 80, 'body'], [306, 94, 'body'], [160, 92, 'body'], [214, 152, 'body'], [198, 206, 'body'], [190, 222, 'bike'], [190, 190, 'bike'], [168, 104, 'bike']];
+    } else {
+      rider = '<path d="M160 92 L226 150 L218 186" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>' +
+        '<path d="M222 20 L222 250" stroke="currentColor" stroke-width="2" stroke-dasharray="6 6" opacity=".6"/>' +
+        '<path d="M190 190 L222 190" stroke="currentColor" stroke-width="4" opacity=".85"/>';
+      dots = [[226, 150, 'body'], [222, 190, 'bike'], [190, 190, 'bike'], [186, 104, 'bike']];
+    }
+    var d = dots.map(function (p, i) {
+      return '<circle cx="' + p[0] + '" cy="' + p[1] + '" r="10" fill="' + COL[p[2]] + '" stroke="#0f2127" stroke-width="1.5"/>' +
+        '<text x="' + p[0] + '" y="' + (p[1] + 4) + '" text-anchor="middle" font-size="12" font-weight="700" fill="#06201e" font-family="Barlow, Arial, sans-serif">' + (i + 1) + '</text>';
+    }).join('');
+    return '<svg viewBox="0 0 420 262" role="img" aria-label="Esquema lateral de la bici con los puntos numerados">' + base + rider + d + '</svg>';
+  }
+  function renderEmpty() {
+    var el = $('#empty'), M = cur();
+    el.hidden = !!M.src || live.on;
+    if (M.src) return;
+    el.innerHTML = schematic(state.mode) +
+      '<p><strong>Foto lateral con ' + MODES[state.mode].shot + '.</strong></p>' +
+      '<p>Abre la Cámara en vivo para encuadrar y capturar con temporizador, o usa Hacer foto, Grabar vídeo o Galería. Después marca los puntos numerados.</p>';
+  }
+
+  /* ---------- lienzo ---------- */
+  var cv = $('#cv'), ctx = cv.getContext('2d'), wrap = $('#canvaswrap');
+  var cssW = 0, cssH = 0, dpr = 1, drag = null, raf = 0;
+
+  function fit() {
+    var M = cur();
+    cv.hidden = !M.src || live.on;
+    if (!M.src) return;
+    var ratio = M.src.height / M.src.width;
+    var maxH = Math.max(300, window.innerHeight * (window.innerWidth < 600 ? 0.58 : 0.72));
+    cssW = Math.max(120, Math.min(wrap.clientWidth, maxH / ratio));
+    cssH = cssW * ratio;
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cv.style.width = cssW + 'px';
+    cv.style.height = cssH + 'px';
+    cv.width = Math.round(cssW * dpr);
+    cv.height = Math.round(cssH * dpr);
+  }
+  function C(k) { var q = cur().pts[k]; return q ? { x: q.x * cssW, y: q.y * cssH } : null; }
+
+  function line(a, b, col, w, dash) {
+    ctx.save(); ctx.lineCap = 'round';
+    if (dash) ctx.setLineDash(dash);
+    ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+    ctx.strokeStyle = 'rgba(0,0,0,.55)'; ctx.lineWidth = w + 3; ctx.stroke();
+    ctx.strokeStyle = col; ctx.lineWidth = w; ctx.stroke();
+    ctx.restore();
+  }
+  function pill(text, x, y, col) {
+    ctx.save();
+    ctx.font = '700 13px Barlow, Arial, sans-serif';
+    var w = ctx.measureText(text).width + 14, h = 22;
+    x = Math.min(cssW - w / 2 - 2, Math.max(w / 2 + 2, x));
+    y = Math.min(cssH - h / 2 - 2, Math.max(h / 2 + 2, y));
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(x - w / 2, y - h / 2, w, h, 11); else ctx.rect(x - w / 2, y - h / 2, w, h);
+    ctx.fillStyle = col; ctx.fill();
+    ctx.strokeStyle = 'rgba(0,0,0,.6)'; ctx.lineWidth = 1; ctx.stroke();
+    ctx.fillStyle = '#0b1a1e'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(text, x, y + 1);
+    ctx.restore();
+  }
+  function angleMark(a, v, b, text, col) {
+    var a1 = Math.atan2(a.y - v.y, a.x - v.x), a2 = Math.atan2(b.y - v.y, b.x - v.x);
+    var d = a2 - a1;
+    while (d > Math.PI) d -= 2 * Math.PI;
+    while (d < -Math.PI) d += 2 * Math.PI;
+    ctx.save();
+    ctx.beginPath(); ctx.arc(v.x, v.y, 30, a1, a1 + d, d < 0);
+    ctx.strokeStyle = 'rgba(0,0,0,.55)'; ctx.lineWidth = 5; ctx.stroke();
+    ctx.strokeStyle = col; ctx.lineWidth = 2.5; ctx.stroke();
+    ctx.restore();
+    var mid = a1 + d / 2;
+    pill(text, v.x + Math.cos(mid) * 58, v.y + Math.sin(mid) * 58, col);
+  }
+
+  function draw() {
+    var M = cur();
+    if (!M.src || !cssW) return;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, cssW, cssH);
+    ctx.drawImage(M.src, 0, 0, cssW, cssH);
+    var ms = compute(), mt = function (id) { for (var i = 0; i < ms.length; i++) if (ms[i].id === id) return ms[i]; return null; };
+    var col = function (id) { var m = mt(id); return m ? ST[m.st] : COL.body; };
+    var P = {};
+    pdef().forEach(function (p) { P[p.k] = C(p.k); });
+
+    if (P.bb && P.pedal) line(P.bb, P.pedal, COL.bike, 3);
+    if (P.axF && P.axR) {
+      line(P.axR, P.axF, COL.cal, 2.5, [8, 6]);
+      var wbv = num(state.wheelbase);
+      if (wbv > 500) pill(Math.round(wbv) + ' mm', (P.axF.x + P.axR.x) / 2, Math.min(P.axF.y, P.axR.y) - 26, COL.cal);
+    }
+    if (P.wTop && P.wBot) {
+      line(P.wTop, P.wBot, COL.cal, 2.5, [8, 6]);
+      var wdv = num(state.wheelMm);
+      if (wdv > 300) pill(Math.round(wdv) + ' mm', (P.wTop.x + P.wBot.x) / 2 + 48, (P.wTop.y + P.wBot.y) / 2, COL.cal);
+    }
+    if (state.mode === 'down') {
+      if (P.shoulder && P.hip) {
+        line(P.shoulder, P.hip, COL.body, 3);
+        var ref = { x: P.hip.x + state.dir * 110, y: P.hip.y };
+        line(P.hip, ref, 'rgba(255,255,255,.8)', 1.5, [5, 5]);
+        var tm = mt('torso');
+        if (tm) angleMark(P.shoulder, P.hip, ref, tm.value, col('torso'));
+      }
+      if (P.shoulder && P.elbow) line(P.shoulder, P.elbow, COL.body, 3);
+      if (P.elbow && P.wrist) line(P.elbow, P.wrist, COL.body, 3);
+      if (P.shoulder && P.elbow && P.wrist && mt('elbow')) angleMark(P.shoulder, P.elbow, P.wrist, mt('elbow').value, col('elbow'));
+      if (P.hip && P.knee) line(P.hip, P.knee, COL.body, 3);
+      if (P.knee && P.ankle) line(P.knee, P.ankle, COL.body, 3);
+      if (P.ankle && P.pedal) line(P.ankle, P.pedal, COL.body, 2, [4, 4]);
+      if (P.hip && P.knee && P.ankle && mt('knee')) angleMark(P.hip, P.knee, P.ankle, mt('knee').value, col('knee'));
+      if (P.bb && P.saddle) {
+        line(P.bb, P.saddle, COL.bike, 3);
+        var hm = mt('height');
+        if (hm) pill(hm.value, (P.bb.x + P.saddle.x) / 2 - state.dir * 52, (P.bb.y + P.saddle.y) / 2, COL.bike);
+      }
+    } else {
+      if (P.pedal) line({ x: P.pedal.x, y: 0 }, { x: P.pedal.x, y: cssH }, COL.bike, 1.5, [7, 6]);
+      if (P.tt) line({ x: P.tt.x, y: 0 }, { x: P.tt.x, y: cssH }, COL.body, 1.5, [7, 6]);
+      if (P.tt && P.pedal) {
+        var y = Math.min(cssH - 24, Math.max(P.tt.y, P.pedal.y) + 40);
+        line({ x: P.tt.x, y: y }, { x: P.pedal.x, y: y }, col('kops'), 3);
+        if (mt('kops')) pill(mt('kops').value, (P.tt.x + P.pedal.x) / 2, y - 18, col('kops'));
+      }
+      if (P.bb) line({ x: P.bb.x, y: 0 }, { x: P.bb.x, y: cssH }, 'rgba(255,255,255,.55)', 1.2, [3, 6]);
+      if (P.tip && P.bb) {
+        line({ x: P.tip.x, y: 0 }, { x: P.tip.x, y: cssH }, COL.bike, 1.5, [7, 6]);
+        var y2 = Math.max(24, Math.min(P.tip.y, P.bb.y) - 40);
+        line({ x: P.tip.x, y: y2 }, { x: P.bb.x, y: y2 }, COL.bike, 3);
+        if (mt('setback')) pill(mt('setback').value, (P.tip.x + P.bb.x) / 2, y2 - 18, COL.bike);
+      }
+    }
+    pdef().forEach(function (p, i) {
+      var q = P[p.k]; if (!q) return;
+      var on = i === M.active;
+      ctx.save();
+      ctx.beginPath(); ctx.arc(q.x, q.y, on ? 13 : 11, 0, 2 * Math.PI);
+      ctx.fillStyle = COL[p.g]; ctx.fill();
+      ctx.lineWidth = on ? 3 : 1.5; ctx.strokeStyle = on ? '#ffffff' : 'rgba(0,0,0,.7)'; ctx.stroke();
+      ctx.fillStyle = '#06201e'; ctx.font = '700 12px Barlow, Arial, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(String(i + 1), q.x, q.y + 1);
+      ctx.restore();
+    });
+    if (drag) drawLoupe();
+  }
+
+  function drawLoupe() {
+    var M = cur(), q = M.pts[drag.k]; if (!q) return;
+    var px = q.x * cssW, py = q.y * cssH, R = 54, Z = 3;
+    var lx = Math.min(cssW - R - 6, Math.max(R + 6, px)), ly = py - R - 46;
+    if (ly < R + 6) ly = py + R + 46;
+    ly = Math.min(cssH - R - 6, Math.max(R + 6, ly));
+    var sw = (2 * R / Z) / cssW * M.src.width, sh = (2 * R / Z) / cssH * M.src.height;
+    ctx.save();
+    ctx.beginPath(); ctx.arc(lx, ly, R, 0, 2 * Math.PI); ctx.clip();
+    ctx.fillStyle = '#000'; ctx.fillRect(lx - R, ly - R, 2 * R, 2 * R);
+    ctx.drawImage(M.src, q.x * M.src.width - sw / 2, q.y * M.src.height - sh / 2, sw, sh, lx - R, ly - R, 2 * R, 2 * R);
+    ctx.restore();
+    ctx.save();
+    ctx.beginPath(); ctx.arc(lx, ly, R, 0, 2 * Math.PI); ctx.strokeStyle = '#fff'; ctx.lineWidth = 3; ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(lx - 12, ly); ctx.lineTo(lx + 12, ly); ctx.moveTo(lx, ly - 12); ctx.lineTo(lx, ly + 12);
+    ctx.strokeStyle = '#ff3b6b'; ctx.lineWidth = 1.5; ctx.stroke();
+    ctx.restore();
+  }
+
+  /* ---------- paneles ---------- */
+  function renderModes() {
+    $('#mode-down').setAttribute('aria-pressed', String(state.mode === 'down'));
+    $('#mode-fwd').setAttribute('aria-pressed', String(state.mode === 'fwd'));
+    $('#dir-left').setAttribute('aria-pressed', String(state.dir === -1));
+    $('#dir-right').setAttribute('aria-pressed', String(state.dir === 1));
+    $('#sc-crank').setAttribute('aria-pressed', String(state.scale === 'crank'));
+    $('#sc-base').setAttribute('aria-pressed', String(state.scale === 'wheelbase'));
+    $('#sc-wheel').setAttribute('aria-pressed', String(state.scale === 'wheel'));
+    $('#sc-note').textContent = SC_NOTE[state.scale];
+    $('#type-note').textContent = TYPES[state.type].note;
+  }
+  function renderPoints() {
+    var M = cur(), box = $('#pts');
+    box.innerHTML = '';
+    pdef().forEach(function (p, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'pt ' + p.g + (i === M.active ? ' on' : '') + (M.pts[p.k] ? ' done' : '');
+      b.innerHTML = '<span class="dot">' + (i + 1) + '</span><span>' + p.n + '</span>';
+      b.setAttribute('aria-label', 'Punto ' + (i + 1) + ': ' + p.n + (M.pts[p.k] ? ', colocado' : ', pendiente'));
+      b.addEventListener('click', function () { M.active = i; renderPoints(); hint(); draw(); });
+      box.appendChild(b);
+    });
+    var ap = pdef()[M.active];
+    $('#active-info').innerHTML = '<strong>' + (M.active + 1) + '. ' + ap.n + '.</strong> ' + ap.h;
+  }
+  function renderResults() {
+    var M = cur(), ms = compute(), box = $('#results'), miss = missing(), total = pdef().length;
+    $('#count').textContent = (total - miss.length) + ' de ' + total + ' puntos';
+    var html = ms.map(function (m) {
+      return '<div class="metric" data-st="' + m.st + '"><div><h3>' + m.name + '</h3><div class="sub">' + m.sub + '</div><span class="pill">' + ST_TXT[m.st] + '</span></div>' +
+        '<div class="val">' + m.value + '</div><p>' + m.msg + '</p></div>';
+    }).join('');
+    if (!M.src) html = '<p class="pending">Carga una foto o un vídeo para empezar.</p>';
+    else if (miss.length) html += '<p class="pending">' + (ms.length ? 'Faltan: ' : 'Marca los puntos para ver los resultados. Faltan: ') + miss.map(function (p) { return p.n.toLowerCase(); }).join(', ') + '.</p>';
+    box.innerHTML = html;
+  }
+  function hint() {
+    var M = cur(), el = $('#hint');
+    if (!M.src) { el.textContent = ''; return; }
+    var miss = missing();
+    el.textContent = miss.length
+      ? 'Toca la foto para colocar «' + pdef()[M.active].n + '». Arrastra cualquier punto para corregirlo; la lupa te ayuda a afinar.'
+      : 'Todos los puntos colocados. Arrastra los que quieras afinar o cambia de fotograma en el vídeo.';
+    $('#btn-save').hidden = !M.src;
+  }
+  function renderVid() {
+    var M = cur(), bar = $('#vidbar');
+    bar.hidden = !M.vid;
+    if (M.vid) { $('#v-seek').max = M.vid.duration; $('#v-seek').value = M.vid.currentTime; timeLabel(); }
+  }
+  function timeLabel() {
+    var v = cur().vid; if (!v) return;
+    var t = v.currentTime, m = Math.floor(t / 60), s = (t - m * 60).toFixed(1).replace('.', ',');
+    $('#v-time').textContent = m + ':' + (s.length < 4 ? '0' : '') + s;
+  }
+  function refresh() {
+    renderModes(); renderEmpty(); fit(); renderPoints(); renderResults(); hint(); renderVid(); draw();
+  }
+  function lite() { renderPoints(); renderResults(); hint(); draw(); }
+
+  /* ---------- carga de foto y vídeo ---------- */
+  var toastT = 0;
+  function toast(t) {
+    var el = $('#toast'); el.textContent = t; el.hidden = false;
+    clearTimeout(toastT); toastT = setTimeout(function () { el.hidden = true; }, 3200);
+  }
+  function setSource(img, w, h) {
+    var k = Math.min(1, 1600 / Math.max(w, h));
+    var c = document.createElement('canvas');
+    c.width = Math.round(w * k); c.height = Math.round(h * k);
+    c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+    cur().src = c;
+  }
+  function resetCur() { var M = cur(); M.pts = {}; M.active = 0; M.vid = null; }
+  function loadImage(file) {
+    var url = URL.createObjectURL(file), im = new Image();
+    im.onload = function () { resetCur(); setSource(im, im.naturalWidth, im.naturalHeight); URL.revokeObjectURL(url); refresh(); };
+    im.onerror = function () { toast('No se pudo abrir la imagen. Prueba con otra foto.'); };
+    im.src = url;
+  }
+  function loadVideo(file) {
+    var v = document.createElement('video');
+    v.muted = true; v.defaultMuted = true; v.playsInline = true; v.preload = 'auto';
+    v.setAttribute('playsinline', ''); v.setAttribute('webkit-playsinline', ''); v.setAttribute('muted', '');
+    v.style.cssText = 'position:fixed;left:0;top:0;width:1px;height:1px;opacity:0;pointer-events:none';
+    document.body.appendChild(v);
+    v.onerror = function () { toast('No se pudo leer el vídeo. Usa una foto.'); };
+    v.onloadedmetadata = function () {
+      if (!isFinite(v.duration) || !v.videoWidth) { toast('No se pudo leer el vídeo. Usa una foto.'); return; }
+      resetCur(); cur().vid = v;
+      var first = function () { try { v.currentTime = 0.001; } catch (e) {} };
+      var pr = v.play ? v.play() : null;
+      if (pr && pr.then) pr.then(function () { v.pause(); first(); }).catch(first); else first();
+    };
+    v.onseeked = function () {
+      var M = cur();
+      if (M.vid !== v) return;
+      setSource(v, v.videoWidth, v.videoHeight);
+      refresh();
+    };
+    v.src = URL.createObjectURL(file);
+  }
+  function onFile(e) {
+    var f = e.target.files && e.target.files[0];
+    e.target.value = '';
+    if (!f) return;
+    stopLive();
+    if (f.type.indexOf('video/') === 0) loadVideo(f); else loadImage(f);
+  }
+  ['#in-photo', '#in-video', '#in-gallery'].forEach(function (s) { $(s).addEventListener('change', onFile); });
+
+  function seekTo(t) {
+    var v = cur().vid; if (!v) return;
+    v.currentTime = Math.min(v.duration, Math.max(0, t));
+    $('#v-seek').value = v.currentTime; timeLabel();
+  }
+  $('#v-seek').addEventListener('input', function (e) { seekTo(+e.target.value); });
+  $('#v-prev').addEventListener('click', function () { var v = cur().vid; if (v) seekTo(v.currentTime - 1 / 30); });
+  $('#v-next').addEventListener('click', function () { var v = cur().vid; if (v) seekTo(v.currentTime + 1 / 30); });
+
+  /* ---------- cámara en vivo ---------- */
+  function stopLive() {
+    clearInterval(live.tm); live.counting = false;
+    if (live.stream) live.stream.getTracks().forEach(function (t) { t.stop(); });
+    live.stream = null;
+    var was = live.on; live.on = false;
+    $('#live').srcObject = null;
+    $('#livebox').hidden = true; $('#livebar').hidden = true; $('#cdown').hidden = true;
+    if (was) refresh();
+  }
+  function startLive() {
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || window.isSecureContext === false) {
+      toast('Este navegador no deja abrir la cámara en vivo desde aquí. Usa Hacer foto o Grabar vídeo.');
+      return;
+    }
+    clearInterval(live.tm); live.counting = false;
+    if (live.stream) live.stream.getTracks().forEach(function (t) { t.stop(); });
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: live.facing }, width: { ideal: 1920 }, height: { ideal: 1080 } }, audio: false })
+      .then(function (st) {
+        live.stream = st; live.on = true;
+        var v = $('#live'); v.srcObject = st;
+        if (v.play) v.play().catch(function () {});
+        $('#livebox').hidden = false; $('#livebar').hidden = false; $('#vidbar').hidden = true;
+        cv.hidden = true; $('#empty').hidden = true;
+      })
+      .catch(function (err) {
+        toast(err && err.name === 'NotAllowedError' ? 'Permiso de cámara denegado. Actívalo en los ajustes del navegador.' : 'No se pudo abrir la cámara. Usa Hacer foto o Grabar vídeo.');
+      });
+  }
+  function shoot() {
+    var v = $('#live');
+    if (!v.videoWidth || live.counting) return;
+    var go = function () { resetCur(); setSource(v, v.videoWidth, v.videoHeight); stopLive(); refresh(); };
+    var n = +$('#l-timer').value;
+    if (!n) { go(); return; }
+    var el = $('#cdown'), c = n;
+    live.counting = true; el.hidden = false; el.textContent = c;
+    live.tm = setInterval(function () {
+      c--;
+      if (c <= 0) { clearInterval(live.tm); live.counting = false; el.hidden = true; go(); }
+      else el.textContent = c;
+    }, 1000);
+  }
+  $('#btn-live').addEventListener('click', startLive);
+  $('#l-shot').addEventListener('click', shoot);
+  $('#l-close').addEventListener('click', stopLive);
+  $('#l-flip').addEventListener('click', function () { live.facing = live.facing === 'environment' ? 'user' : 'environment'; startLive(); });
+
+  /* ---------- interacción en el lienzo ---------- */
+  function nextPending(M) {
+    var pts = pdef(), n = pts.length;
+    for (var i = 1; i <= n; i++) {
+      var j = (M.active + i) % n;
+      if (!M.pts[pts[j].k]) return j;
+    }
+    return M.active;
+  }
+  function pos(e) { var r = cv.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; }
+  function clamp01(v) { return Math.min(1, Math.max(0, v)); }
+
+  cv.addEventListener('pointerdown', function (e) {
+    var M = cur(); if (!M.src) return;
+    e.preventDefault();
+    var p = pos(e), pts = pdef(), hit = -1, best = M.pts[pts[M.active].k] ? 28 : 12;
+    pts.forEach(function (d, i) {
+      var q = M.pts[d.k]; if (!q) return;
+      var dd = Math.hypot(q.x * cssW - p.x, q.y * cssH - p.y);
+      if (dd < best) { best = dd; hit = i; }
+    });
+    var offX = 0, offY = 0, key;
+    if (hit >= 0) {
+      M.active = hit; key = pts[hit].k;
+      offX = M.pts[key].x * cssW - p.x; offY = M.pts[key].y * cssH - p.y;
+    } else {
+      key = pts[M.active].k;
+      var isNew = !M.pts[key];
+      M.pts[key] = { x: clamp01(p.x / cssW), y: clamp01(p.y / cssH) };
+      if (isNew) M.active = nextPending(M);
+    }
+    drag = { k: key, ox: offX, oy: offY, id: e.pointerId };
+    try { cv.setPointerCapture(e.pointerId); } catch (err) {}
+    lite();
+  });
+  cv.addEventListener('pointermove', function (e) {
+    if (!drag || e.pointerId !== drag.id) return;
+    var p = pos(e);
+    cur().pts[drag.k] = { x: clamp01((p.x + drag.ox) / cssW), y: clamp01((p.y + drag.oy) / cssH) };
+    if (!raf) raf = requestAnimationFrame(function () { raf = 0; renderResults(); draw(); });
+  });
+  function endDrag(e) {
+    if (!drag || (e && e.pointerId !== drag.id)) return;
+    drag = null; lite();
+  }
+  cv.addEventListener('pointerup', endDrag);
+  cv.addEventListener('pointercancel', endDrag);
+  cv.addEventListener('keydown', function (e) {
+    var M = cur(), k = pdef()[M.active].k, q = M.pts[k];
+    var d = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] }[e.key];
+    if (!d || !q) return;
+    e.preventDefault();
+    var st = e.shiftKey ? 10 : 2;
+    M.pts[k] = { x: clamp01(q.x + d[0] * st / cssW), y: clamp01(q.y + d[1] * st / cssH) };
+    renderResults(); draw();
+  });
+
+  /* ---------- controles ---------- */
+  $('#mode-down').addEventListener('click', function () { stopLive(); state.mode = 'down'; refresh(); });
+  $('#mode-fwd').addEventListener('click', function () { stopLive(); state.mode = 'fwd'; refresh(); });
+  $('#dir-left').addEventListener('click', function () { state.dir = -1; persist(); renderModes(); lite(); });
+  $('#dir-right').addEventListener('click', function () { state.dir = 1; persist(); renderModes(); lite(); });
+  $('#btype').addEventListener('change', function (e) {
+    state.type = e.target.value;
+    if (!state.wheelTouched) { state.wheelKey = TYPES[state.type].wheel; state.wheelMm = WHEELS[state.wheelKey].mm; }
+    persist(); syncBike(); renderModes(); lite();
+  });
+  $('#wsize').addEventListener('change', function (e) {
+    state.wheelKey = e.target.value; state.wheelMm = WHEELS[state.wheelKey].mm; state.wheelTouched = true;
+    persist(); syncBike(); lite();
+  });
+  $('#wmm').addEventListener('input', function (e) {
+    var v = num(e.target.value);
+    if (v > 0) { state.wheelMm = v; state.wheelTouched = true; persist(); lite(); }
+  });
+  $('#wbase').addEventListener('input', function (e) { state.wheelbase = e.target.value; persist(); lite(); });
+  function setScale(k) {
+    state.scale = k; persist();
+    ['down', 'fwd'].forEach(function (m) { var n = MODES[m].points.length + calPoints().length; if (state.m[m].active >= n) state.m[m].active = n - 1; });
+    var M = cur(), base = MODES[state.mode].points.length;
+    if (calPoints().length && !M.pts[calPoints()[0].k]) M.active = base;
+    refresh();
+  }
+  $('#sc-crank').addEventListener('click', function () { setScale('crank'); });
+  $('#sc-base').addEventListener('click', function () { setScale('wheelbase'); });
+  $('#sc-wheel').addEventListener('click', function () { setScale('wheel'); });
+  $('#crank').addEventListener('input', function (e) {
+    var v = num(e.target.value);
+    if (v >= 150 && v <= 190) { state.crank = v; persist(); lite(); }
+  });
+  $('#inseam').addEventListener('input', function (e) { state.inseam = e.target.value; persist(); lite(); });
+  $('#btn-reset').addEventListener('click', function () { var M = cur(); M.pts = {}; M.active = 0; lite(); });
+  $('#btn-undo').addEventListener('click', function () {
+    var M = cur(), k = pdef()[M.active].k; delete M.pts[k]; lite();
+  });
+  function syncBike() {
+    $('#btype').value = state.type; $('#wsize').value = state.wheelKey; $('#wmm').value = state.wheelMm;
+    $('#wbase').value = state.wheelbase; $('#crank').value = String(state.crank).replace('.', ','); $('#inseam').value = state.inseam;
+  }
+  Object.keys(TYPES).forEach(function (k) { var o = document.createElement('option'); o.value = k; o.textContent = TYPES[k].n; $('#btype').appendChild(o); });
+  Object.keys(WHEELS).forEach(function (k) { var o = document.createElement('option'); o.value = k; o.textContent = WHEELS[k].n; $('#wsize').appendChild(o); });
+  syncBike();
+
+  /* ---------- guardar imagen ---------- */
+  function exportPng() {
+    var M = cur(); if (!M.src) return;
+    drag = null; draw();
+    var W = 1200, imgH = Math.round(cv.height * W / cv.width), ms = compute();
+    var foot = 90 + ms.length * 46 + 30;
+    var c = document.createElement('canvas'); c.width = W; c.height = imgH + foot;
+    var x = c.getContext('2d');
+    x.fillStyle = '#ffffff'; x.fillRect(0, 0, W, c.height);
+    x.drawImage(cv, 0, 0, W, imgH);
+    x.fillStyle = '#0f2127'; x.font = '700 34px "Arial Narrow", Arial, sans-serif';
+    x.fillText('Biofit Bici · ' + MODES[state.mode].title + ' · ' + TYPES[state.type].n, 32, imgH + 52);
+    x.font = '500 24px Arial, sans-serif';
+    ms.forEach(function (m, i) {
+      var y = imgH + 100 + i * 46;
+      x.fillStyle = '#0f2127'; x.fillText(m.name, 32, y);
+      x.textAlign = 'right'; x.font = '700 26px Arial, sans-serif'; x.fillText(m.value + '  ·  ' + ST_TXT[m.st], W - 32, y);
+      x.textAlign = 'left'; x.font = '500 24px Arial, sans-serif';
+    });
+    c.toBlob(function (b) {
+      if (!b) { toast('No se pudo crear la imagen.'); return; }
+      var name = 'biofit-bici-' + state.mode + '-' + new Date().toISOString().slice(0, 10) + '.png', file = null;
+      try { file = new File([b], name, { type: 'image/png' }); } catch (e) {}
+      if (file && navigator.canShare && navigator.canShare({ files: [file] })) {
+        navigator.share({ files: [file], title: 'Biofit Bici' }).catch(function () {});
+        return;
+      }
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(b); a.download = name; document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
+      toast('Imagen guardada.');
+    }, 'image/png');
+    draw();
+  }
+  $('#btn-save').addEventListener('click', exportPng);
+  (function tips() {
+    var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    var standalone = navigator.standalone === true || (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
+    var kind = '', msg = '';
+    if (location.protocol === 'file:') {
+      kind = 'file';
+      msg = ios ? 'Abierta como archivo, la cámara en vivo no funciona en iPhone. Sube el archivo a un alojamiento gratuito con https y ábrelo en Safari. Hacer foto, Grabar vídeo y Galería funcionan igual.'
+                : 'Abierta como archivo local, la cámara en vivo puede no funcionar. Hacer foto, Grabar vídeo y Galería sí.';
+    } else if (ios && !standalone) {
+      kind = 'ios';
+      msg = 'Para usarla como una app, pulsa Compartir en Safari y elige Añadir a pantalla de inicio.';
+    }
+    if (!kind) return;
+    try { if (localStorage.getItem('biofit-tip-' + kind)) return; } catch (e) {}
+    $('#tip-text').textContent = msg; $('#tip').hidden = false;
+    $('#tip-ok').addEventListener('click', function () {
+      $('#tip').hidden = true;
+      try { localStorage.setItem('biofit-tip-' + kind, '1'); } catch (e) {}
+    });
+  })();
+
+  if (window.ResizeObserver) new ResizeObserver(function () { if (cur().src) { fit(); draw(); } }).observe(wrap);
+  window.addEventListener('resize', function () { fit(); draw(); });
+  refresh();
+})();
+</script>
+
+</body>
+</html>
